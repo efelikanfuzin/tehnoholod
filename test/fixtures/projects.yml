@@ -1,0 +1,17 @@
+one:
+  title: Test Project
+  keywords: test, project
+  description: Test project description
+  preview_img: project.jpg
+  content: Project content text
+  preview: Project preview text
+  slug: test-project
+
+two:
+  title: Another Project
+  keywords: another, project
+  description: Another project description
+  preview_img: project2.jpg
+  content: Another project content
+  preview: Another project preview
+  slug: another-project

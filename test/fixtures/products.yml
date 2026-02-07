@@ -1,0 +1,19 @@
+one:
+  title: Test Product
+  price: 10000
+  description: A test product description
+  avatar: product.jpg
+  products_type: 0
+  slug: test-product
+  meta_description: Test product meta
+  meta_keywords: test, product
+
+two:
+  title: Another Product
+  price: 20000
+  description: Another product description
+  avatar: product2.jpg
+  products_type: 1
+  slug: another-product
+  meta_description: Another product meta
+  meta_keywords: another, product

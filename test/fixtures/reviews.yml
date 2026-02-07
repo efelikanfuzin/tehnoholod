@@ -1,13 +1,13 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  full_name: MyString
-  job: MyString
-  content: MyString
-  photo: MyString
+  full_name: Ivan Ivanov
+  job: Engineer
+  content: Great service!
+  photo: photo1.jpg
+  show: true
 
 two:
-  full_name: MyString
-  job: MyString
-  content: MyString
-  photo: MyString
+  full_name: Petr Petrov
+  job: Manager
+  content: Very professional!
+  photo: photo2.jpg
+  show: false

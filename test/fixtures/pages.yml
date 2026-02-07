@@ -1,0 +1,17 @@
+index:
+  name: index
+  title: Tehnoholod - Main Page
+  description: Main page description
+  keywords: tehnoholod, main
+
+about:
+  name: about
+  title: About Us
+  description: About page description
+  keywords: about, company
+
+contacts:
+  name: contacts
+  title: Contacts
+  description: Contacts page description
+  keywords: contacts, phone

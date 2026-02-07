@@ -3,7 +3,7 @@
 class Blog < ApplicationRecord
   extend FriendlyId
   include Sluggable
-  include PgSearch
+  include PgSearch::Model
 
   friendly_id :title, use: :slugged
   mount_uploader :preview_img, PreviewUploader

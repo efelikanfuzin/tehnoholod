@@ -1,15 +1,17 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  previe: MyText
-  content: MyText
-  preview_img: MyString
-  keywords: MyString
-  description: MyString
+  title: First Blog Post
+  preview: This is a preview text
+  content: This is the content of the first blog post
+  preview_img: test_image.jpg
+  keywords: test, blog
+  description: Test blog post description
+  slug: first-blog-post
 
 two:
-  previe: MyText
-  content: MyText
-  preview_img: MyString
-  keywords: MyString
-  description: MyString
+  title: Second Blog Post
+  preview: Another preview text
+  content: This is the content of the second blog post
+  preview_img: test_image2.jpg
+  keywords: test, second
+  description: Second test blog post
+  slug: second-blog-post
