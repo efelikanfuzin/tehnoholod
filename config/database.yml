@@ -1,23 +1,18 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  host: localhost
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: 5
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
   <<: *default
-  database: teсhnoholod_db_dev
+  database: tehnoholod_db_dev
 
 test:
   <<: *default
-  database: tehnoholod_db_test 
-  username: tehnoholod
-  password: ""
+  database: tehnoholod_db_test
 
 production:
   <<: *default
   username: deploy
-  database: teсhnoholod_db
+  database: tehnoholod_db
   # password: <%= ENV['CINEMAFULL_DATABASE_PASSWORD'] %>

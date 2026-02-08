@@ -1,4 +1,9 @@
+require:
+  - rubocop-rails
+
 AllCops:
+  TargetRubyVersion: 3.3
+  NewCops: enable
   Exclude:
     - 'db/**/*'
     - 'bin/**/*'
@@ -7,12 +12,9 @@ AllCops:
     - 'node_modules/**/*'
     - 'vendor/**/*'
 
-Rails:
-  Enabled: true
-
 Style/Documentation:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 80
-  IgnoredPatterns: ['(\A|\s)#']
+Layout/LineLength:
+  Max: 120
+  AllowedPatterns: ['(\A|\s)#']

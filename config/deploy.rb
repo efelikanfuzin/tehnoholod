@@ -23,7 +23,7 @@ set :puma_worker_timeout, nil
 set :puma_init_active_record, true # Change to false when not using ActiveRecord
 
 # set :rvm_type, :user
-set :rvm_ruby_version, '2.5.1'
+set :rvm_ruby_version, '3.3.6'
 
 ## Defaults:
 # set :scm,           :git

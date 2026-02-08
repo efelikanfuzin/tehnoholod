@@ -1,0 +1,23 @@
+one:
+  title: Test Stock Item
+  description: A test stock item description
+  price: 15000
+  sale_price: 12000
+  amount: 5
+  tags: sale, discount
+  preview: stock.jpg
+  meta_description: Test stock meta
+  meta_keywords: test, stock
+  slug: test-stock-item
+
+two:
+  title: Another Stock Item
+  description: Another stock item description
+  price: 25000
+  sale_price: 20000
+  amount: 10
+  tags: clearance
+  preview: stock2.jpg
+  meta_description: Another stock meta
+  meta_keywords: another, stock
+  slug: another-stock-item
