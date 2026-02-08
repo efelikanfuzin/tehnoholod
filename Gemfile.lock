@@ -235,16 +235,6 @@ GEM
     parser (3.3.10.1)
       ast (~> 2.4.1)
       racc
-    pg (1.6.3)
-    pg (1.6.3-aarch64-linux)
-    pg (1.6.3-aarch64-linux-musl)
-    pg (1.6.3-arm64-darwin)
-    pg (1.6.3-x86_64-darwin)
-    pg (1.6.3-x86_64-linux)
-    pg (1.6.3-x86_64-linux-musl)
-    pg_search (2.3.7)
-      activerecord (>= 6.1)
-      activesupport (>= 6.1)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -420,8 +410,7 @@ DEPENDENCIES
   meta-tags
   mini_magick
   minitest
-  pg (~> 1.1)
-  pg_search
+  sqlite3
   pry
   puma
   rails (~> 8.0)

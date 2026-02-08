@@ -1,18 +1,16 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: sqlite3
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  timeout: 5000
 
 development:
   <<: *default
-  database: tehnoholod_db_dev
+  database: db/development.sqlite3
 
 test:
   <<: *default
-  database: tehnoholod_db_test
+  database: db/test.sqlite3
 
 production:
   <<: *default
-  username: deploy
-  database: tehnoholod_db
-  # password: <%= ENV['CINEMAFULL_DATABASE_PASSWORD'] %>
+  database: db/production.sqlite3
