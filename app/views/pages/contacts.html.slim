@@ -1,6 +1,6 @@
 .content.cf.main-content
   .breadcrumbs
-    = link_to 'Главная', root_path, rel: :canonical
+    = link_to 'Главная', root_path
     span.arrow >
     h1.last Контакты
 
@@ -19,15 +19,15 @@
     tr.tel
       td.contact_title Телефон:
       td
-        a.value href="tel:+7(4832)66-30-53" 66-30-53
+        a.value href="tel:+74832663053" 66-30-53
         |, &nbsp;
-        a.value href="tel:+7(953)271-68-08" 8-953-271-68-08
+        a.value href="tel:+79532716808" 8-953-271-68-08
     tr
       td.contact_title Факс:
       td.fax (4832) 74-35-67
     tr
       td.contact_title E-mail:
-      td 
+      td
         a.email href="mailto:info@tehnoholod.ru" info@tehnoholod.ru
     tr
       td.contact_title Время работы:
@@ -35,3 +35,7 @@
         span.workhours пн-чт 9:00-18:00, пт 9:00-17:30
 
   script type="text/javascript" charset="utf-8" async="" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A537c91a0967e9fb69f0483f4a03197cb81d27e8d2641a3cc8f0371cbb824d5d7&amp;width=100%25&amp;height=500&amp;lang=ru_RU&amp;scroll=true"
+
+- content_for :head
+  script type="application/ld+json"
+    == raw({ "@context": "https://schema.org", "@type": "LocalBusiness", "name": "ТехноХолод", "address": { "@type": "PostalAddress", "streetAddress": "ул. Крапивницкого, 15", "addressLocality": "Брянск", "postalCode": "241050", "addressCountry": "RU" }, "telephone": "+7(4832)66-30-53", "email": "info@tehnoholod.ru", "openingHours": ["Mo-Th 09:00-18:00", "Fr 09:00-17:30"], "url": "https://tehnoholod.ru" }.to_json)

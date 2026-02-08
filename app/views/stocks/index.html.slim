@@ -1,16 +1,16 @@
 .content.main-content
   .breadcrumbs
-    = link_to 'Главная', root_path, rel: :canonical
+    = link_to 'Главная', root_path
     span.arrow >
     h1.last Распродажа
 
   .stock.cf
     - for stock in @stocks
-      = link_to stock, class: 'stock_item', rel: :canonical
+      = link_to stock, class: 'stock_item'
         span.stock_item_price = "#{stock.sale_price} ₽"
         span.stock_item_old-price = "#{stock.price} ₽"
         - if stock.preview.url.present?
-          = image_tag stock.preview.url, alt: stock.title, class: 'stock_item-img'
+          = image_tag stock.preview.url, alt: stock.title, class: 'stock_item-img', loading: 'lazy'
         p.stock_item_title = stock.title
   .cf
     = paginate @stocks

@@ -1,18 +1,20 @@
 doctype html
-html
+html lang="ru"
   head
-    = display_meta_tags site: 'Технохолод'
+    meta charset="utf-8"
+    = display_meta_tags site: 'Технохолод', separator: '|', reverse: true
     link rel="shortcut icon" href="favicon.ico" type="image/x-icon"
+    = tag(:link, rel: 'canonical', href: request.original_url.split('?').first)
     meta name="yandex-verification" content="bb996f2cc0ab9dc5"
     meta name="yandex-verification" content="1cfebf8c40061bae"
-    meta name="yandex-verification" content="bb996f2cc0ab9dc5"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
     = stylesheet_link_tag "application", media: 'all'
     = csrf_meta_tags
+    = yield :head
   body
     = render 'shared/header'
     = yield
     = render 'shared/footer'
     = render 'shared/metrica' if Rails.env.production?
 
-    = javascript_include_tag "application"
+    = javascript_include_tag "application", defer: true

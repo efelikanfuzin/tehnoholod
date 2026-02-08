@@ -1,17 +1,16 @@
 .wrapper.sticky
   .content
     nav.header.cf
-      = link_to root_path, class: 'header_logo', rel: :canonical do
-        = image_tag 'logo.png', alt: 'ТехноХолод'
-      = link_to 'ПРОДУКЦИЯ',  products_path, class: 'header_item', rel: :canonical
-      = link_to 'РАСПРОДАЖА', stocks_path, class: 'header_item', rel: :canonical
-      = link_to 'ПРОЕКТЫ', projects_path, class: 'header_item', rel: :canonical
-      = link_to 'О КОМПАНИИ', about_path, class: 'header_item', rel: :canonical
-      = link_to 'БЛОГ',  blogs_path, class: 'header_item', rel: :canonical
-      = link_to 'КОНТАКТЫ', contacts_path, class: 'header_item', rel: :canonical
+      = link_to root_path, class: 'header_logo' do
+        = image_tag 'logo.png', alt: 'ТехноХолод — оборудование для общепита и магазинов в Брянске', width: 180, height: 50
+      = link_to 'ПРОДУКЦИЯ',  products_path, class: 'header_item'
+      = link_to 'РАСПРОДАЖА', stocks_path, class: 'header_item'
+      = link_to 'ПРОЕКТЫ', projects_path, class: 'header_item'
+      = link_to 'О КОМПАНИИ', about_path, class: 'header_item'
+      = link_to 'БЛОГ',  blogs_path, class: 'header_item'
+      = link_to 'КОНТАКТЫ', contacts_path, class: 'header_item'
 
       .contacts
         .contacts_adress Брянск, ул. Крапивницкого, 15
         a.contacts_phone href="tel:+74832663053" 8(4832) 66-30-53
       = link_to 'ОБРАТНАЯ СВЯЗЬ', root_path(anchor: :feedback_block), class: 'contacts_btn'
-

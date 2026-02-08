@@ -1,11 +1,17 @@
 .content.cf style="margin-top: 5rem;"
   .breadcrumbs
-    = link_to 'Главная', root_path, rel: :canonical
+    = link_to 'Главная', root_path
     span.arrow >
-    = link_to 'Продукция', products_path, rel: :canonical
+    = link_to 'Продукция', products_path
 
   .left-side
     = render 'shared/product_menu', products: @products
   .right-side.cf.text_content.products
     h1.title = @product.title
     p = raw @product.description
+
+- content_for :head
+  = tag(:meta, property: 'og:title', content: @product.title)
+  = tag(:meta, property: 'og:description', content: @product.meta_description)
+  = tag(:meta, property: 'og:type', content: 'product')
+  = tag(:meta, property: 'og:url', content: request.original_url)

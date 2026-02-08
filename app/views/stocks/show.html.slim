@@ -1,8 +1,8 @@
 .content.main-content
   .breadcrumbs
-    = link_to 'Главная', root_path, rel: :canonical
+    = link_to 'Главная', root_path
     span.arrow >
-    = link_to 'Распродажа', stocks_path, rel: :canonical
+    = link_to 'Распродажа', stocks_path
     span.arrow >
     h1.last = @stock.title
 
@@ -34,3 +34,12 @@ div style="display:none"
       = text_field_tag(:phone, nil, placeholder: 'Ваш телефон', class: 'form-input')
       = submit_tag("ОТПРАВИТЬ ЗАЯВКУ", class: 'form-submit')
 
+- content_for :head
+  = tag(:meta, property: 'og:title', content: @stock.title)
+  = tag(:meta, property: 'og:description', content: @stock.meta_description)
+  = tag(:meta, property: 'og:type', content: 'product')
+  = tag(:meta, property: 'og:url', content: request.original_url)
+  - if @stock.preview.present?
+    = tag(:meta, property: 'og:image', content: "https://tehnoholod.ru#{@stock.preview.url}")
+  script type="application/ld+json"
+    == raw({ "@context": "https://schema.org", "@type": "Product", "name": @stock.title, "description": @stock.meta_description, "offers": { "@type": "Offer", "price": @stock.sale_price, "priceCurrency": "RUB", "availability": "https://schema.org/InStock" } }.to_json)

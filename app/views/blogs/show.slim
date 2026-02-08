@@ -1,11 +1,21 @@
 .content.cf.main-content
   .breadcrumbs
-    = link_to 'Главная', root_path, rel: :canonical
+    = link_to 'Главная', root_path
     span.arrow >
-    = link_to 'Блог', blogs_path, rel: :canonical
+    = link_to 'Блог', blogs_path
     span.arrow >
     h1.last = @post.title
 
   .content_block_text
-    .blog-item_big_content 
+    .blog-item_big_content
       = raw @post.content
+
+- content_for :head
+  = tag(:meta, property: 'og:title', content: @post.title)
+  = tag(:meta, property: 'og:description', content: @post.description)
+  = tag(:meta, property: 'og:type', content: 'article')
+  = tag(:meta, property: 'og:url', content: request.original_url)
+  - if @post.preview_img.present?
+    = tag(:meta, property: 'og:image', content: "https://tehnoholod.ru#{@post.preview_img.url}")
+  script type="application/ld+json"
+    == raw({ "@context": "https://schema.org", "@type": "BlogPosting", "headline": @post.title, "description": @post.description, "datePublished": @post.created_at.iso8601, "dateModified": @post.updated_at.iso8601, "publisher": { "@type": "Organization", "name": "ТехноХолод" } }.to_json)
