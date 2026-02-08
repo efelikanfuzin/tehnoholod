@@ -5,7 +5,7 @@
         .reviews_slide itemprop="review" itemscope="" itemtype="http://schema.org/Review"
           .reviews_author
             .reviews_author_avatar
-              = image_tag(review.photo.url, width: "150px") 
+              = image_tag(review.photo.url, width: 150, height: 150, alt: review.full_name, loading: 'lazy')
             p.reviews_author_name itemprop="author" = review.full_name
             p.reviews_author_job = review.job
           .reviews_text

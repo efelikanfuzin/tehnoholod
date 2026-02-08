@@ -17,7 +17,11 @@ class ApplicationController < ActionController::Base
     page = Page.find_by(name: "#{params[:controller]}_#{params[:action]}")
     set_meta_tags title: page.try(:title),
                   description: page.try(:description),
-                  keywords: page.try(:keywords)
+                  keywords: page.try(:keywords),
+                  og: {
+                    site_name: 'ТехноХолод',
+                    locale: 'ru_RU'
+                  }
   end
 
   def redirect_subdomain

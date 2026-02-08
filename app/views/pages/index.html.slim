@@ -7,19 +7,19 @@
 .content.cf
   .pros.mobile_hide
     .pros_item
-      = image_tag('3.png')
+      = image_tag('3.png', alt: 'Дизайн-проект', width: 64, height: 64)
       .pros_text Дизайн-проект
     .pros_item
-      = image_tag('1.png')
+      = image_tag('1.png', alt: 'Консультации специалистов', width: 64, height: 64)
       .pros_text Консультации специалистов
     .pros_item
-      = image_tag('2.png')
+      = image_tag('2.png', alt: 'Индивидуальный подход', width: 64, height: 64)
       .pros_text Индивидуальный подход
     .pros_item
-      = image_tag('5.png')
+      = image_tag('5.png', alt: 'Монтаж и сервисное обслуживание', width: 64, height: 64)
       .pros_text Монтаж,сервисное обслуживание
     .pros_item
-      = image_tag('4.png')
+      = image_tag('4.png', alt: 'Широкий ассортимент', width: 64, height: 64)
       .pros_text Широкий ассортимент
 
 .content
@@ -62,12 +62,16 @@
       .stock--sale
         span.stock_item_sale Распродажа товара
       - for stock in @stocks
-        = link_to stock, class: 'stock_item', rel: :canonical
+        = link_to stock, class: 'stock_item'
           span.stock_item_price = "#{stock.sale_price} ₽"
           span.stock_item_old-price = "#{stock.price} ₽"
-          = image_tag stock.preview.preview.url, alt: stock.title, class: 'stock_item-img'
+          = image_tag stock.preview.preview.url, alt: stock.title, class: 'stock_item-img', loading: 'lazy'
 
           p.stock_item_title = stock.title
 
   - if @reviews.present?
     = render 'shared/reviews', reviews: @reviews
+
+- content_for :head
+  script type="application/ld+json"
+    == raw({ "@context": "https://schema.org", "@type": "Organization", "name": "ТехноХолод", "url": "https://tehnoholod.ru", "logo": "https://tehnoholod.ru#{image_path('logo.png')}", "description": "Поставщик профессионального оборудования для магазинов, ресторанов, кафе в Брянске", "address": { "@type": "PostalAddress", "streetAddress": "ул. Крапивницкого, 15", "addressLocality": "Брянск", "postalCode": "241050", "addressCountry": "RU" }, "telephone": "+7(4832)66-30-53", "email": "info@tehnoholod.ru" }.to_json)

@@ -1,6 +1,6 @@
 .content.cf.main-content
   .breadcrumbs
-    = link_to 'Главная', root_path, rel: :canonical
+    = link_to 'Главная', root_path
     span.arrow >
     h1.last Продукция
 
@@ -10,18 +10,18 @@
   .right-side.cf
     .product_title ОБОРУДОВАНИЕ ДЛЯ ОБЩЕПИТА
     - @products['public_catering'].each.with_index(1) do |product, index|
-      = link_to product, class: "product_item #{last_in_row(index)}", rel: :canonical
-        = image_tag product.avatar.preview.url, alt: product.title, width: 250
+      = link_to product, class: "product_item #{last_in_row(index)}"
+        = image_tag product.avatar.preview.url, alt: product.title, width: 250, loading: 'lazy'
         .product_item_name = product.title
 
     .product_title МЕБЕЛЬ, ПОСУДА, СЕРВИРОВКА
     - @products['furniture'].each.with_index(1) do |product, index|
-      = link_to product, class: "product_item #{last_in_row(index)}", rel: :canonical
-        = image_tag product.avatar.preview.url, alt: product.title, width: 250
+      = link_to product, class: "product_item #{last_in_row(index)}"
+        = image_tag product.avatar.preview.url, alt: product.title, width: 250, loading: 'lazy'
         .product_item_name = product.title
 
     .product_title ОБОРУДОВАНИЕ ДЛЯ МАГАЗИНА
     - @products['store_items'].each.with_index(1) do |product, index|
-      = link_to product, class: "product_item #{last_in_row(index)}", rel: :canonical
-        = image_tag product.avatar.preview.url, alt: product.title, width: 250
+      = link_to product, class: "product_item #{last_in_row(index)}"
+        = image_tag product.avatar.preview.url, alt: product.title, width: 250, loading: 'lazy'
         .product_item_name = product.title

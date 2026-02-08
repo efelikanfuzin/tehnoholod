@@ -1,8 +1,8 @@
 .content.cf style="margin-top: 5rem;"
   .breadcrumbs
-    = link_to 'Главная', root_path, rel: :canonical
+    = link_to 'Главная', root_path
     span.arrow >
-    = link_to 'Проекты', projects_path, rel: :canonical
+    = link_to 'Проекты', projects_path
     span.arrow >
     h1.last = @project.title
 
@@ -19,7 +19,13 @@
           - for image in @photos
             .swiper-slide
               a.fancybox href=image
-                = image_tag image.preview.url, alt: @project.title
+                = image_tag image.preview.url, alt: @project.title, loading: 'lazy'
 
         .swiper-button-prev.project-gall-prev.mobile_hide data-prodject-gall-prev=''
         .swiper-button-next.project-gall-next.mobile_hide data-prodject-gall-next=''
+
+- content_for :head
+  = tag(:meta, property: 'og:title', content: @project.title)
+  = tag(:meta, property: 'og:description', content: @project.description)
+  = tag(:meta, property: 'og:type', content: 'article')
+  = tag(:meta, property: 'og:url', content: request.original_url)
