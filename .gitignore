@@ -18,3 +18,10 @@
 # SQLite database files
 /db/*.sqlite3
 /db/*.sqlite3-*
+
+# Kamal secrets (contains env vars)
+.kamal/secrets
+
+# Storage
+/storage/*
+!/storage/.keep

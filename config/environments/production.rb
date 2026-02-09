@@ -13,8 +13,8 @@ Rails.application.configure do
   config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
 
-  # Disable serving static files from `/public`, relying on NGINX/Apache to do that instead.
-  config.public_file_server.enabled = true
+  # Enable serving static files from `/public` (Kamal/Docker serves directly via Puma).
+  config.public_file_server.enabled = ENV["RAILS_SERVE_STATIC_FILES"].present? || true
 
   # Do not fall back to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
@@ -32,6 +32,13 @@ Rails.application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
+  # Log to STDOUT in Docker containers.
+  if ENV["RAILS_LOG_TO_STDOUT"].present?
+    logger           = ActiveSupport::Logger.new($stdout)
+    logger.formatter = config.log_formatter
+    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+  end
+
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
@@ -41,7 +48,7 @@ Rails.application.configure do
     port: 587,
     enable_starttls_auto: true,
     user_name: 'efelikanfuzin',
-    password: 'iibuododswykattg',
+    password: ENV.fetch('SMTP_PASSWORD'),
     authentication: 'login'
   }
 end
