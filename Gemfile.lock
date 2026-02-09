@@ -396,16 +396,12 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootsnap
-  capistrano
-  capistrano-bundler
-  capistrano-rails
-  capistrano-rvm
-  capistrano3-puma
   carrierwave
   ckeditor (~> 5.1)
   devise
   friendly_id
   image_processing
+  kamal
   kaminari
   meta-tags
   mini_magick

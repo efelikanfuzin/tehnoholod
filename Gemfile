@@ -23,16 +23,12 @@ gem 'sitemap_generator'
 gem 'slim-rails'
 gem 'sprockets-rails'
 gem 'terser'
+gem 'kamal', require: false
 gem 'whenever', require: false
 
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'capistrano', require: false
-  gem 'capistrano-bundler', require: false
-  gem 'capistrano-rails', require: false
-  gem 'capistrano-rvm', require: false
-  gem 'capistrano3-puma', require: false
   gem 'pry'
   gem 'rubocop', require: false
   gem 'rubocop-rails', require: false

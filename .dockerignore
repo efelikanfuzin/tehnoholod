@@ -1,0 +1,39 @@
+# Git
+.git
+.gitignore
+
+# Logs
+log/*
+
+# Temp files
+tmp/*
+
+# Editor configs
+.vscode
+.idea
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+
+# CI/CD
+.github
+.circleci
+
+# Docker
+Dockerfile*
+.dockerignore
+
+# Database files
+db/*.sqlite3
+db/*.sqlite3-*
+
+# Uploaded files
+public/uploads
+
+# Bundle cache
+vendor/bundle
+
+# Node modules
+node_modules
