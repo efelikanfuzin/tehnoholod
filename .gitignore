@@ -14,3 +14,7 @@
 /public/uploads/*
 /public/assets
 .DS_Store
+
+# SQLite database files
+/db/*.sqlite3
+/db/*.sqlite3-*
