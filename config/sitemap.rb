@@ -16,7 +16,7 @@ SitemapGenerator::Sitemap.create do
   end
 
   add blogs_path, priority: 1.0, changefreq: 'weekly'
-  Blog.find_each do |blog|
+  Blog.all.each do |blog|
     add blog_path(blog), priority: 0.8, changefreq: 'monthly', lastmod: blog.updated_at
   end
 

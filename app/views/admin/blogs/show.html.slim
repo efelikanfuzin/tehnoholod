@@ -1,0 +1,35 @@
+h2 = @blog.title
+
+.card
+  p
+    strong Slug:
+    = @blog.slug
+  p
+    strong Keywords:
+    = @blog.keywords.presence || '—'
+  p
+    strong Description:
+    = @blog.description.presence || '—'
+  p
+    strong Превью изображение:
+    = @blog.preview_img.presence || '—'
+  p
+    strong Дата создания:
+    = @blog.created_at&.strftime('%d.%m.%Y %H:%M')
+
+.card
+  h3 Превью
+  p = @blog.preview
+
+.card
+  h3 Содержимое (Markdown)
+  pre style="background: #f8f8f8; padding: 15px; border-radius: 4px; overflow-x: auto;"
+    = @blog.content
+
+.card
+  h3 Предпросмотр
+  = @blog.rendered_content
+
+p
+  = link_to 'Редактировать', edit_admin_blog_path(@blog.slug), class: 'btn btn-success'
+  = link_to 'Назад', admin_blogs_path, class: 'btn btn-primary'

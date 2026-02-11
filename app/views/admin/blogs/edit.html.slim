@@ -1,0 +1,4 @@
+h2 Редактировать статью
+
+.card
+  = render 'form', blog: @blog, url: admin_blog_path(@blog.slug), method: :patch

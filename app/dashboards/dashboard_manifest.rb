@@ -16,7 +16,6 @@ class DashboardManifest
     stocks
     products
     projects
-    blogs
     reviews
   ].freeze
 

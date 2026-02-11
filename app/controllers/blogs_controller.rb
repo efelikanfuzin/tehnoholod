@@ -3,18 +3,17 @@
 class BlogsController < ApplicationController
   def index
     if params[:search].present?
-      @search_results_posts =
-        Blog.search_by_title_and_content(params[:search])
-            .page(params[:page])
-            .order(id: :desc)
-            .per(5)
+      results = Blog.search_by_title_and_content(params[:search])
+      @search_results_posts = BlogPaginator.new(results, params[:page])
+                                           .order(created_at: :desc)
+                                           .per(5)
 
       respond_to do |format|
         format.js { render partial: 'search-results' }
       end
     else
       @blog_posts = Blog.page(params[:page])
-                        .order(id: :desc)
+                        .order(created_at: :desc)
                         .per(5)
     end
 
