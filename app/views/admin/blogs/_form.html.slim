@@ -1,0 +1,32 @@
+= form_with(model: blog, url: url, method: method, local: true) do |f|
+  .form-group
+    = f.label :title, 'Заголовок'
+    = f.text_field :title, required: true
+
+  .form-group
+    = f.label :slug, 'Slug (URL, оставьте пустым для авто-генерации)'
+    = f.text_field :slug
+
+  .form-group
+    = f.label :preview, 'Превью текст'
+    = f.text_area :preview, rows: 3, style: 'min-height: 80px;'
+
+  .form-group
+    = f.label :preview_img, 'URL превью изображения'
+    = f.text_field :preview_img
+
+  .form-group
+    = f.label :content, 'Содержимое (Markdown)'
+    = f.text_area :content, required: true, rows: 20
+
+  .form-group
+    = f.label :keywords, 'SEO Keywords'
+    = f.text_field :keywords
+
+  .form-group
+    = f.label :description, 'SEO Description'
+    = f.text_field :description
+
+  p
+    = f.submit 'Сохранить', class: 'btn btn-primary'
+    = link_to 'Отмена', admin_blogs_path, class: 'btn btn-danger', style: 'margin-left: 10px;'

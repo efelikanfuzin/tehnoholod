@@ -82,12 +82,13 @@ GEM
       actionview (>= 6.0, < 9.0)
       activerecord (>= 6.0, < 9.0)
       kaminari (~> 1.2.2)
-    airbrussh (1.6.0)
-      sshkit (>= 1.6.1, != 1.7.0)
     ast (2.4.3)
     babosa (2.0.0)
     base64 (0.3.0)
     bcrypt (3.1.21)
+    bcrypt_pbkdf (1.1.2)
+    bcrypt_pbkdf (1.1.2-arm64-darwin)
+    bcrypt_pbkdf (1.1.2-x86_64-darwin)
     better_errors (2.10.1)
       erubi (>= 1.0.0)
       rack (>= 0.9.0)
@@ -98,23 +99,6 @@ GEM
     bootsnap (1.22.0)
       msgpack (~> 1.2)
     builder (3.3.0)
-    capistrano (3.20.0)
-      airbrussh (>= 1.0.0)
-      i18n
-      rake (>= 10.0.0)
-      sshkit (>= 1.9.0)
-    capistrano-bundler (2.2.0)
-      capistrano (~> 3.1)
-    capistrano-rails (1.7.0)
-      capistrano (~> 3.1)
-      capistrano-bundler (>= 1.1, < 3)
-    capistrano-rvm (0.1.2)
-      capistrano (~> 3.0)
-      sshkit (~> 1.2)
-    capistrano3-puma (7.1.0)
-      capistrano (~> 3.7)
-      capistrano-bundler
-      puma (>= 6.1, < 8.0)
     carrierwave (3.1.2)
       activemodel (>= 6.0.0)
       activesupport (>= 6.0.0)
@@ -137,7 +121,9 @@ GEM
       railties (>= 7.0)
       responders
       warden (~> 1.2.3)
+    dotenv (3.2.0)
     drb (2.2.3)
+    ed25519 (1.4.0)
     erb (6.0.1)
     erubi (1.13.1)
     execjs (2.10.0)
@@ -164,6 +150,17 @@ GEM
       rdoc (>= 4.0.0)
       reline (>= 0.4.2)
     json (2.18.1)
+    kamal (2.10.1)
+      activesupport (>= 7.0)
+      base64 (~> 0.2)
+      bcrypt_pbkdf (~> 1.0)
+      concurrent-ruby (~> 1.2)
+      dotenv (~> 3.1)
+      ed25519 (~> 1.4)
+      net-ssh (~> 7.3)
+      sshkit (>= 1.23.0, < 2.0)
+      thor (~> 1.3)
+      zeitwerk (>= 2.6.18, < 3.0)
     kaminari (1.2.2)
       activesupport (>= 4.1.0)
       kaminari-actionview (= 1.2.2)
@@ -297,6 +294,7 @@ GEM
       erb
       psych (>= 4.0.0)
       tsort
+    redcarpet (3.6.1)
     regexp_parser (2.11.3)
     reline (0.6.3)
       io-console (~> 0.5)
@@ -346,6 +344,14 @@ GEM
       actionpack (>= 6.1)
       activesupport (>= 6.1)
       sprockets (>= 3.0.0)
+    sqlite3 (2.9.0-aarch64-linux-gnu)
+    sqlite3 (2.9.0-aarch64-linux-musl)
+    sqlite3 (2.9.0-arm-linux-gnu)
+    sqlite3 (2.9.0-arm-linux-musl)
+    sqlite3 (2.9.0-arm64-darwin)
+    sqlite3 (2.9.0-x86_64-darwin)
+    sqlite3 (2.9.0-x86_64-linux-gnu)
+    sqlite3 (2.9.0-x86_64-linux-musl)
     sshkit (1.25.0)
       base64
       logger
@@ -406,16 +412,17 @@ DEPENDENCIES
   meta-tags
   mini_magick
   minitest
-  sqlite3
   pry
   puma
   rails (~> 8.0)
   rails-i18n
+  redcarpet
   rubocop
   rubocop-rails
   sitemap_generator
   slim-rails
   sprockets-rails
+  sqlite3
   terser
   whenever
 

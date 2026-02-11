@@ -8,7 +8,7 @@
 
   .content_block_text
     .blog-item_big_content
-      = raw @post.content
+      = @post.rendered_content
 
 - content_for :head
   = tag(:meta, property: 'og:title', content: @post.title)
@@ -16,6 +16,6 @@
   = tag(:meta, property: 'og:type', content: 'article')
   = tag(:meta, property: 'og:url', content: request.original_url)
   - if @post.preview_img.present?
-    = tag(:meta, property: 'og:image', content: "https://tehnoholod.ru#{@post.preview_img.url}")
+    = tag(:meta, property: 'og:image', content: @post.preview_img)
   script type="application/ld+json"
     == raw({ "@context": "https://schema.org", "@type": "BlogPosting", "headline": @post.title, "description": @post.description, "datePublished": @post.created_at.iso8601, "dateModified": @post.updated_at.iso8601, "publisher": { "@type": "Organization", "name": "ТехноХолод" } }.to_json)

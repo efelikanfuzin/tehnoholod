@@ -1,0 +1,24 @@
+h2 Статьи блога
+p = link_to 'Создать статью', new_admin_blog_path, class: 'btn btn-primary'
+
+table
+  thead
+    tr
+      th Название
+      th Slug
+      th SEO Keywords
+      th SEO Description
+      th Дата
+      th Действия
+  tbody
+    - @blogs.each do |blog|
+      tr
+        td = blog.title
+        td = blog.slug
+        td = blog.keywords_filled
+        td = blog.description_filled
+        td = blog.created_at&.strftime('%d.%m.%Y')
+        td.actions
+          = link_to 'Просмотр', admin_blog_path(blog.slug), class: 'btn btn-primary'
+          = link_to 'Ред.', edit_admin_blog_path(blog.slug), class: 'btn btn-success'
+          = link_to 'Удалить', admin_blog_path(blog.slug), data: { turbo_method: :delete, turbo_confirm: 'Удалить статью?' }, class: 'btn btn-danger'
