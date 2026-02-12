@@ -3,6 +3,8 @@ html lang="ru"
   head
     meta charset="utf-8"
     = display_meta_tags site: 'Технохолод', separator: '|', reverse: true
+    - if ENV['DISALLOW_INDEXING'].present?
+      meta name="robots" content="noindex, nofollow"
     link rel="shortcut icon" href="favicon.ico" type="image/x-icon"
     = tag(:link, rel: 'canonical', href: request.original_url.split('?').first)
     meta name="yandex-verification" content="bb996f2cc0ab9dc5"
