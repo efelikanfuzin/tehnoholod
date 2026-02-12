@@ -5,6 +5,16 @@ if [ -z "${LD_PRELOAD+x}" ] && [ -f /usr/lib/*/libjemalloc.so.2 ]; then
   export LD_PRELOAD="$(echo /usr/lib/*/libjemalloc.so.2)"
 fi
 
+# Prepare persistent data directory (Render disk mount)
+if [ -d /rails/data ]; then
+  mkdir -p /rails/data/uploads
+  # Symlink uploads to persistent disk if not already linked
+  if [ ! -L /rails/public/uploads ]; then
+    rm -rf /rails/public/uploads
+    ln -sf /rails/data/uploads /rails/public/uploads
+  fi
+fi
+
 # Run pending migrations automatically on deploy
 if [ "${RAILS_ENV}" = "production" ]; then
   ./bin/rails db:prepare

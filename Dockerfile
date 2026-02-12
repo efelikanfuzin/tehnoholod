@@ -39,8 +39,8 @@ COPY --from=build /rails /rails
 
 RUN groupadd --system --gid 1000 rails && \
     useradd rails --uid 1000 --gid 1000 --create-home --shell /bin/bash && \
-    mkdir -p db storage log tmp/pids tmp/sockets public/uploads && \
-    chown -R rails:rails db storage log tmp public/uploads
+    mkdir -p db data storage log tmp/pids tmp/sockets public/uploads && \
+    chown -R rails:rails db data storage log tmp public/uploads
 
 USER 1000:1000
 

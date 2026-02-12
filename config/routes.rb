@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get '/robots.txt', to: 'robots#show', as: :robots
+
   mount Ckeditor::Engine => '/ckeditor'
   authenticate :user do
     namespace :admin do

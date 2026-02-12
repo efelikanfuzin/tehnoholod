@@ -1,3 +1,5 @@
+return if ENV['DISALLOW_INDEXING'].present?
+
 SitemapGenerator::Sitemap.default_host = 'https://tehnoholod.ru'
 SitemapGenerator::Sitemap.compress = false
 
