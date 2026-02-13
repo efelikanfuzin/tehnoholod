@@ -5,6 +5,11 @@ if [ -z "${LD_PRELOAD+x}" ] && [ -f /usr/lib/*/libjemalloc.so.2 ]; then
   export LD_PRELOAD="$(echo /usr/lib/*/libjemalloc.so.2)"
 fi
 
+# Generate SECRET_KEY_BASE if not set (e.g. Render free service without blueprint)
+if [ -z "${SECRET_KEY_BASE}" ]; then
+  export SECRET_KEY_BASE="$(openssl rand -hex 64)"
+fi
+
 # Prepare persistent data directory (Render disk mount)
 if [ -d /rails/data ]; then
   mkdir -p /rails/data/uploads
