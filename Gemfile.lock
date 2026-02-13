@@ -339,6 +339,7 @@ GEM
       sprockets-rails
       tilt
     securerandom (0.4.1)
+    selectize-rails (0.12.6)
     sitemap_generator (6.3.0)
       builder (~> 3.0)
     slim (5.2.1)
@@ -433,6 +434,7 @@ DEPENDENCIES
   rubocop
   rubocop-rails
   sassc-rails
+  selectize-rails
   sitemap_generator
   slim-rails
   sprockets-rails
