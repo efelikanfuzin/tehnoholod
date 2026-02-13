@@ -25,6 +25,7 @@ gem 'slim-rails'
 gem 'sprockets-rails'
 gem 'sassc-rails'
 gem 'jquery-rails'
+gem 'selectize-rails'
 gem 'terser'
 gem 'kamal', require: false
 gem 'whenever', require: false
