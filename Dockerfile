@@ -29,7 +29,7 @@ RUN bundle install && \
 
 COPY . .
 
-RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile --trace
 
 # Stage 3: Production image
 FROM base
