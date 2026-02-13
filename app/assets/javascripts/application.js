@@ -12,6 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require swiper
 //= require fancybox
 //= require index.js

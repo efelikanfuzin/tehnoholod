@@ -23,6 +23,8 @@ gem 'sitemap_generator'
 gem 'redcarpet'
 gem 'slim-rails'
 gem 'sprockets-rails'
+gem 'sassc-rails'
+gem 'jquery-rails'
 gem 'terser'
 gem 'kamal', require: false
 gem 'whenever', require: false
