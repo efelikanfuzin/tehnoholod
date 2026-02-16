@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[8.0].define(version: 2026_02_08_000001) do
 
-  create_table "blogs", id: :serial, force: :cascade do |t|
+  create_table "blogs", force: :cascade do |t|
     t.text "preview"
     t.text "content"
     t.string "preview_img"
@@ -25,7 +25,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_08_000001) do
     t.index ["slug"], name: "index_blogs_on_slug"
   end
 
-  create_table "ckeditor_assets", id: :serial, force: :cascade do |t|
+  create_table "ckeditor_assets", force: :cascade do |t|
     t.string "data_file_name", null: false
     t.string "data_content_type"
     t.integer "data_file_size"
@@ -40,7 +40,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_08_000001) do
     t.index ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type"
   end
 
-  create_table "films", id: :serial, force: :cascade do |t|
+  create_table "films", force: :cascade do |t|
     t.string "name"
     t.string "info"
     t.datetime "created_at", null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_08_000001) do
     t.index ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
   end
 
-  create_table "pages", id: :serial, force: :cascade do |t|
+  create_table "pages", force: :cascade do |t|
     t.string "name"
     t.string "title"
     t.string "description"
@@ -70,7 +70,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_08_000001) do
     t.index ["name"], name: "index_pages_on_name"
   end
 
-  create_table "products", id: :serial, force: :cascade do |t|
+  create_table "products", force: :cascade do |t|
     t.string "title"
     t.integer "price"
     t.string "description"
@@ -86,7 +86,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_08_000001) do
     t.index ["slug"], name: "index_products_on_slug"
   end
 
-  create_table "projects", id: :serial, force: :cascade do |t|
+  create_table "projects", force: :cascade do |t|
     t.string "title"
     t.string "keywords"
     t.string "description"
@@ -108,7 +108,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_08_000001) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "stocks", id: :serial, force: :cascade do |t|
+  create_table "stocks", force: :cascade do |t|
     t.string "title"
     t.text "description"
     t.integer "price"
@@ -125,7 +125,7 @@ ActiveRecord::Schema[8.0].define(version: 2026_02_08_000001) do
     t.index ["slug"], name: "index_stocks_on_slug"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
