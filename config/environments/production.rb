@@ -1,8 +1,9 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  # Read secret_key_base from environment variable (required for production).
-  config.secret_key_base = ENV["SECRET_KEY_BASE"]
+  # Read secret_key_base from environment variable.
+  # Guard with .present? so SECRET_KEY_BASE_DUMMY=1 still works during docker build.
+  config.secret_key_base = ENV["SECRET_KEY_BASE"] if ENV["SECRET_KEY_BASE"].present?
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
