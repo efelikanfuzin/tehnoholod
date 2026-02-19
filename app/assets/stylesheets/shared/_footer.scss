@@ -1,51 +1,105 @@
+// ─── Dark footer ─────────────────────────────────────────────────────────────
+.wrapper_footer {
+  background: #0f172a;
+  margin-top: 3rem;
+}
+
 .footer {
-  padding: 20px 0;
-  margin-top: 20px;
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .5rem;
 
   &_copy {
-    display: inline-block;
-    color: $gray;
-    font-size: 12px;
-    line-height: 18px;
-    margin-right: 56px;
-    float: left;
-    margin-top: 10px;
+    color: #64748b;
+    font-size: .8125rem;
+    line-height: 1.5;
+    margin-right: 1.5rem;
   }
 
   &_item {
-    display: inline-block;
-    color: #010101;
-    font-size: 16px;
-    line-height: 26px;
-    transition: all 0.6s;
+    display: inline-flex;
+    align-items: center;
+    color: #94a3b8;
+    font-size: .875rem;
     text-decoration: none;
-    font-weight: 600;
-    margin-right: 19px;
-    float: left;
-    margin-top: 6px;
+    font-weight: 500;
+    margin-right: .25rem;
+    padding: .2rem .4rem;
+    border-radius: 4px;
+    transition: color .2s ease, background .2s ease;
 
     &:hover {
-      color: $blue;
+      color: #fff;
+      background: rgba(255,255,255,.08);
     }
+  }
+
+  .contacts {
+    margin-left: auto;
+    text-align: right;
+  }
+
+  .contacts_adress {
+    color: #64748b;
+    font-size: .75rem;
+    margin-bottom: .2rem;
+  }
+
+  .contacts_phone {
+    color: #e2e8f0;
+    font-size: .9375rem;
+    font-weight: 800;
+    text-decoration: none;
+    &:hover { color: #fff; }
+  }
+
+  .contacts_btn {
+    display: inline-flex;
+    align-items: center;
+    background: $red;
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    padding: .45rem .9rem;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background .2s ease;
+    margin-top: .4rem;
+    &:hover { background: darken(#e63946, 8%); }
   }
 }
 
 @media (max-width: 767px) {
   .footer {
-    padding: 0;
-    margin: 0;
+    padding: 1.5rem 0;
+    justify-content: center;
     text-align: center;
+    gap: .35rem;
 
     &_copy {
-      float: none;
-      display: block;
-      margin: .25rem 0;
+      width: 100%;
+      margin: 0 0 .5rem;
+      text-align: center;
     }
 
     &_item {
-      float: none;
-      display: block;
-      margin: 0;
+      display: inline-flex;
+      margin: .1rem;
+    }
+
+    .contacts {
+      width: 100%;
+      margin-left: 0;
+      text-align: center;
+      margin-top: .5rem;
+    }
+
+    .contacts_btn {
+      margin-top: .5rem;
     }
   }
 }

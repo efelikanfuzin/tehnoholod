@@ -1,14 +1,47 @@
+// ─── Search block ─────────────────────────────────────────────────────────────
 .search-block {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
 }
+
 .search-input {
-  margin-right: .5rem;
-  height: 1rem;
-  padding: .3rem;
-  width: 300px;
-  font-size: .8rem;
+  height: 2.5rem;
+  padding: .5rem .85rem;
+  width: 320px;
+  font-size: .9375rem;
+  font-family: inherit;
+  background: #fff;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 8px;
+  color: #0f172a;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+
+  &:focus {
+    border-color: $blue;
+    box-shadow: 0 0 0 3px rgba(37,99,235,.1);
+  }
+
+  &::placeholder { color: #94a3b8; }
 }
+
 .search-btn {
-  font-size: 2rem;
-  width: 4rem;
+  height: 2.5rem;
+  padding: 0 1rem;
+  background: $blue;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+
+  &:hover { background: darken($blue, 8%); }
 }

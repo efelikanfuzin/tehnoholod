@@ -1,35 +1,77 @@
 @font-face {
-	font-family: "Roboto";
-	src:  font-url("Roboto-Regular.eot?") format("eot"),
+  font-family: "Roboto";
+  src:  font-url("Roboto-Regular.eot?") format("eot"),
         font-url("Roboto-Regular.ttf") format("truetype"),
         font-url("Roboto-Regular.svg#Samplino") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
+// ─── CSS Custom Properties ──────────────────────────────────────────────
+:root {
+  --font-base:       'Inter', 'Roboto', system-ui, -apple-system, sans-serif;
+  --color-primary:   #1e3a5f;
+  --color-accent:    #2563eb;
+  --color-accent-dk: #1d4ed8;
+  --color-danger:    #e63946;
+  --color-text:      #0f172a;
+  --color-muted:     #64748b;
+  --color-border:    #e2e8f0;
+  --color-bg:        #f8fafc;
+  --color-card:      #ffffff;
+  --shadow-sm:       0 1px 3px rgba(15,23,42,.08), 0 1px 2px rgba(15,23,42,.06);
+  --shadow-md:       0 4px 16px rgba(15,23,42,.10), 0 2px 6px rgba(15,23,42,.07);
+  --shadow-lg:       0 12px 36px rgba(15,23,42,.14), 0 4px 12px rgba(15,23,42,.08);
+  --radius-sm:       6px;
+  --radius-md:       12px;
+  --radius-lg:       20px;
+  --ease:            cubic-bezier(.4,0,.2,1);
+}
+
+// ─── Reset ───────────────────────────────────────────────────────────────
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 body {
   margin: 0;
-  font-family: Roboto, sans-serif;
-  background-color: #f8f8f8;
+  font-family: var(--font-base);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 1.65;
 }
 
-p {
-  margin: 0;
-}
+p { margin: 0; }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-text);
 }
 
+a {
+  color: var(--color-accent);
+  transition: color .2s var(--ease);
+}
+
+// ─── Layout ──────────────────────────────────────────────────────────────
 .content {
   width: 1200px;
+  max-width: 100%;
   height: 100%;
   margin: 0 auto;
 }
 
 .main-content {
-  min-height: calc(100vh - 176px);
+  min-height: calc(100vh - 200px);
   margin-top: 5rem;
+  padding-top: 1.5rem;
 }
 
 .cf::after,
@@ -49,23 +91,24 @@ h1 {
 
 .left-side {
   width: 300px;
-  background: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+  background: var(--color-card);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  overflow: hidden;
 }
 
 .right-side {
   width: 900px;
-  padding-left: 1rem;
+  padding-left: 1.5rem;
 }
 
+// ─── Typography helpers ───────────────────────────────────────────────────
 .text_content {
-  --x-height-multiplier: 0.375;
-  --baseline-multiplier: 0.17;
+  font-size: 1.05rem;
+  line-height: 1.75;
   font-weight: 400;
-  font-style: normal;
-  font-size: 21px;
-  line-height: 1.58;
-  letter-spacing: -.003em;
+  color: var(--color-text);
 }
 
 .content_block_text {
@@ -73,23 +116,55 @@ h1 {
   display: block;
   margin: 0 auto;
 
-  p {
-    margin: 1rem 0;
+  p { margin: 1rem 0; line-height: 1.75; }
+  h2, h3 { margin: 1.5rem 0 .75rem; }
+}
+
+.title {
+  margin: 0;
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--color-primary);
+}
+
+// ─── Breadcrumbs ─────────────────────────────────────────────────────────
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .25rem;
+  margin: 1.25rem 0 1.5rem;
+  font-size: .875rem;
+  color: var(--color-muted);
+  overflow-wrap: break-word;
+
+  a {
+    color: var(--color-muted);
+    text-decoration: none;
+    &:hover { color: var(--color-accent); }
+  }
+
+  .arrow { margin: 0 .35rem; opacity: .45; }
+
+  .last {
+    color: var(--color-text);
+    font-weight: 600;
+    font-size: .875rem;
+    display: inline;
   }
 }
 
+// ─── Responsive ───────────────────────────────────────────────────────────
 @media (max-width: 767px) {
   .content {
     width: 100%;
+    padding: 0 1rem;
 
-    & h1 {
-      text-align: center;
-    }
+    h1 { text-align: center; }
   }
 
-  .mobile_hide {
-    display: none;
-  }
+  .mobile_hide { display: none; }
 
   .left-side {
     width: 100%;
@@ -98,21 +173,13 @@ h1 {
 
   .right-side {
     width: 100%;
-    padding: 1rem;
+    padding: 0;
 
-    & h1 {
-      text-align: center;
-    }
+    h1 { text-align: center; }
   }
 
   .content_block_text {
     width: auto;
-    padding: 1rem;
+    padding: 0;
   }
-}
-
-.title {
-  margin: 0px;
-  font-size: 2rem;
-  line-height: 1.3
 }
