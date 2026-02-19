@@ -1,13 +1,32 @@
+// ─── Hero / Banner ────────────────────────────────────────────────────────────
 .swiper-container {
-  height: 300px;
+  height: 420px;
   margin-top: 4.5rem;
+  border-radius: 0;
+
+  .swiper-pagination-bullet {
+    background: rgba(255,255,255,.6);
+    opacity: 1;
+    transition: background .2s;
+    &-active { background: #fff; }
+  }
 }
 
 .banner {
-  height: 300px;
+  height: 420px;
   width: 100%;
   min-width: 1200px;
   background-size: cover;
+  position: relative;
+
+  // Subtle dark overlay for text readability
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(15,23,42,.45) 0%, rgba(15,23,42,.05) 60%);
+    pointer-events: none;
+  }
 
   &._1 {
     background: url(asset-path('slide_1.jpeg')) center center no-repeat;
@@ -19,167 +38,194 @@
   }
 }
 
+// ─── Advantages / Pros ────────────────────────────────────────────────────────
+.pros {
+  margin: 3rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+
+  &_item {
+    width: 200px;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(15,23,42,.07);
+    border: 1px solid #e2e8f0;
+    transition: transform .2s ease, box-shadow .2s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(15,23,42,.12);
+    }
+  }
+
+  &_text {
+    margin-top: .75rem;
+    color: $text-color;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.35;
+  }
+}
+
+.pros_img_1 { margin-top: 0; }
+.pros_img_4 { margin-top: 0; }
+.pros_img_5 { margin-top: 0; }
+
+// ─── About + Feedback ─────────────────────────────────────────────────────────
 .about {
-  width: 850px;
+  width: 820px;
   float: left;
   margin-bottom: 3rem;
 
   &_title {
-    margin: 0;
-    font-size: 20px;
-    color: $text-color;
-    margin-bottom: 20px;
+    margin: 0 0 1rem;
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #1e3a5f;
   }
 
   &_text {
     color: $text-color;
-    margin-bottom: 10px;
+    line-height: 1.7;
+    margin-bottom: .75rem;
+    font-size: 1rem;
   }
 }
 
 .feedback {
   box-sizing: border-box;
-  width: 330px;
+  width: 340px;
   float: left;
-  margin-left: 20px;
+  margin-left: 1.25rem;
   text-align: center;
-  padding: 20px 1rem;
-  background-color: white;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+  padding: 1.75rem 1.25rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 24px rgba(15,23,42,.10);
+  border: 1px solid #e2e8f0;
 
   &_title {
     color: $red;
-    font-size: 1.3rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
   }
 }
 
+// ─── Form ─────────────────────────────────────────────────────────────────────
 .form {
   &-input,
   &-area {
     box-sizing: border-box;
     display: block;
     width: 100%;
-    margin: 20px auto;
-    padding-left: 10px;
-    font-size: 1rem;
+    margin: .75rem auto;
+    padding: .6rem .85rem;
+    font-size: .9375rem;
+    font-family: inherit;
     outline: 0;
-    background: white;
-    border: 1px solid #d5d5d5;
-    color: $gray;
+    background: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    color: #0f172a;
+    transition: border-color .2s ease, box-shadow .2s ease;
+
+    &:focus {
+      border-color: $blue;
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(37,99,235,.12);
+    }
+
+    &::placeholder { color: #94a3b8; }
   }
 
-  &-input {
-    height: 2rem;
-    font-family: inherit;
-  }
+  &-input { height: 2.75rem; }
 
   &-area {
-    height: 5rem;
-    font-family: inherit;
-    padding-top: .5rem;
+    height: 6rem;
+    resize: vertical;
+    padding-top: .6rem;
   }
 
   &-submit {
     width: 100%;
     height: 3rem;
-    background-color: $red;
-    color: white;
+    background: $red;
+    color: #fff;
     outline: 0;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
     font-size: 1rem;
+    font-weight: 700;
+    font-family: inherit;
+    letter-spacing: .03em;
+    transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
+    box-shadow: 0 2px 8px rgba(230,57,70,.3);
+
+    &:hover {
+      background: darken(#e63946, 8%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(230,57,70,.4);
+    }
+
+    &:active { transform: translateY(0); }
   }
 }
 
+// ─── Providers ────────────────────────────────────────────────────────────────
 .provider {
-  padding: 0 40px 30px;
+  padding: 0 2rem 2rem;
 
   &_img {
-    margin-right: 50px;
+    margin-right: 2.5rem;
     display: inline-block;
     vertical-align: middle;
+    opacity: .8;
+    transition: opacity .2s;
+    &:hover { opacity: 1; }
   }
 }
 
-.pros {
-  margin: 3rem 0;
-
-  &_item {
-    width: 220px;
-    float: left;
-    margin-right: 20px;
-    text-align: center;
-    margin-bottom: 15px;
-
-    &:first-child {
-      margin-left: 10px;
-    }
-
-    &:last-child {
-      margin-right: 10px;
-    }
-  }
-
-  &_text {
-    margin-top: 15px;
-    color: $text-color;
-    font-size: 1.2rem;
-  }
-}
-
-.pros_img_1 {
-  margin-top: 13px;
-}
-
-.pros_img_4 {
-  margin-top: 7px;
-}
-
-.pros_img_5 {
-  margin-top: 20px;
-}
-
+// ─── Mobile ───────────────────────────────────────────────────────────────────
 @media (max-width: 767px) {
+  .swiper-container {
+    height: 260px;
+    margin-top: 4.5rem;
+  }
+
+  .banner {
+    height: 260px;
+    min-width: auto;
+  }
+
   .pros {
-    margin: 1rem 0;
-    &_item {
-      width: 220px;
-      display: block;
-      text-align: center;
-      margin: 0 auto;
-      margin-bottom: 1.5rem;
-      float: none;
-
-      &:first-child {
-        margin: 0 auto;
-        margin-bottom: 1.5rem;
-      }
-
-      &:last-child {
-        margin: 0 auto;
-      }
-    }
+    margin: 1.5rem 0;
+    gap: .75rem;
+    &_item { width: calc(50% - .75rem); }
   }
 
   .about {
     display: block;
     width: 100%;
     float: none;
-    padding: 1rem;
+    padding: 0 1rem;
     box-sizing: border-box;
-    margin: 0;
+    margin: 0 0 1rem;
 
-    &_title {
-      text-align: center;
-    }
+    &_title { text-align: center; }
   }
 
   .feedback {
     width: 100%;
     float: none;
     display: block;
-    margin: 0;
+    margin: 0 0 1rem;
     box-sizing: border-box;
-    margin-bottom: 1rem;
+    border-radius: 0;
   }
 }

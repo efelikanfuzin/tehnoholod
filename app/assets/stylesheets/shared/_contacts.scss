@@ -1,39 +1,50 @@
+// ─── Contacts widget (header / footer) ───────────────────────────────────────
 .contacts {
   display: inline-block;
-  margin-right: 7px;
-  float: left;
+  margin-right: .5rem;
 
   &_phone {
-    color: $text-color;
-    font-size: 20px;
-    font-weight: 900;
-    line-height: 18px;
-    text-transform: uppercase;
+    display: block;
+    color: #1e3a5f;
+    font-size: 1rem;
+    font-weight: 800;
+    line-height: 1.2;
     text-decoration: none;
+    letter-spacing: -.01em;
+    transition: color .2s;
+
+    &:hover { color: $blue; }
   }
 
   &_adress {
-    color: $text-color;
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 18px;
+    color: #64748b;
+    font-size: .75rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: .15rem;
   }
 
   &_btn {
-    display: inline-block;
-    background-color: $red;
-    color: white;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 20px;
-    padding: 12px 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: $red;
+    color: #fff;
+    font-size: .8125rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: .55rem 1.1rem;
     text-decoration: none;
-    border-radius: 4px;
-    transition: all 0.6s;
-    float: left;
+    border-radius: 6px;
+    transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
+    box-shadow: 0 2px 8px rgba(230,57,70,.25);
 
     &:hover {
-      background-color: $red;
+      background: darken(#e63946, 8%);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(230,57,70,.4);
     }
   }
 }
@@ -43,12 +54,14 @@
     .contacts {
       float: none;
       margin: 0;
+      text-align: center;
+      display: block;
     }
 
     .contacts_btn {
-      display: block;
+      display: inline-flex;
       float: none;
-      margin: 1rem;
+      margin-top: .5rem;
     }
   }
 }

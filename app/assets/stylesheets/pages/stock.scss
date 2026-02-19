@@ -1,5 +1,8 @@
+// ─── Stock / Sales cards ──────────────────────────────────────────────────────
 .stock {
-  font-size: 0; // хак что бы не было расстояния между блоками
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
 
   &_field {
     text-align: center;
@@ -7,101 +10,112 @@
   }
 
   &_item {
-    width: 280px;
-    min-height: 350px;
+    width: 278px;
+    min-height: 360px;
     height: auto;
     background: #fff;
     box-sizing: border-box;
     position: relative;
-    float: left;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(15,23,42,.08);
+    border: 1px solid #e2e8f0;
+    padding: .75rem;
     text-decoration: none;
-    color: #000;
+    color: #0f172a;
     cursor: pointer;
-    margin-right: 25px;
-    margin-bottom: 35px;
+    overflow: hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
 
-    &:nth-child(4n) {
-      margin-right: 0;
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 30px rgba(15,23,42,.14);
     }
 
     &_sale {
-      font-size: 2.8rem;
+      font-size: 2.5rem;
       color: $text-color;
+      font-weight: 800;
     }
 
     &_price {
       position: absolute;
-      top: 10px;
+      top: 0;
       left: 0;
-      font-size: 25px;
+      font-size: 1.1rem;
+      font-weight: 700;
       background: $red;
-      padding: 5px 15px;
+      padding: .3rem .85rem;
       color: #fff;
+      border-radius: 0 0 8px 0;
     }
 
     &_old-price {
       position: absolute;
-      right: 50px;
-      top: 18px;
-      font-size: 20px;
-      color: #0f0f0f;
+      right: .75rem;
+      top: .5rem;
+      font-size: 1rem;
+      color: #94a3b8;
       text-decoration: line-through;
     }
 
     &-img {
-      height: 200px;
-      max-width: 260px;
-      margin: 50px auto;
+      height: 180px;
+      max-width: 100%;
+      margin: 2.5rem auto .75rem;
       display: block;
-      margin-bottom: 25px;
+      object-fit: contain;
     }
 
     &_more {
-      display: inline-block;
-      width: 70%;
-      margin: 0 auto;
-      padding: 10px 0;
-      text-align: center;
-      border: 1px solid $red;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 80%;
+      margin: .5rem auto 0;
+      padding: .55rem 0;
+      border-radius: 6px;
+      border: 2px solid $red;
       color: $red;
-      font-size: 16px;
+      font-size: .875rem;
+      font-weight: 700;
       text-decoration: none;
-      transition: all 0.4s;
+      transition: background .2s ease, color .2s ease;
 
       &:hover {
-        background-color: $red;
-        color: white;
+        background: $red;
+        color: #fff;
       }
     }
 
     &_title {
-      height: 55px;
+      height: 52px;
       overflow: hidden;
-      font-size: 1.1rem;
-      font-weight: 600;
-      background: inherit;
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.35;
+      margin-bottom: .25rem;
     }
 
     &_desc {
-      font-size: .8rem;
-      color: #6b6b6b;
-      background: inherit;
+      font-size: .8125rem;
+      color: #64748b;
+      line-height: 1.4;
+      flex-grow: 1;
     }
   }
 
   &--sale {
     box-sizing: border-box;
-    float: left;
     width: 300px;
-    height: 320px;
     text-align: center;
-    padding-top: 70px;
+    padding-top: 4.5rem;
     text-decoration: none;
   }
 }
 
+// ─── Stock detail page ────────────────────────────────────────────────────────
 .stock-left-col,
 .stock-right-col {
   float: left;
@@ -119,35 +133,48 @@
 .stock {
   &_img {
     display: inline-block;
-    width: 100px;
-    margin-right: 8px;
+    width: 90px;
+    margin-right: .5rem;
     cursor: pointer;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 2px solid transparent;
+    transition: border-color .2s;
+    &:hover { border-color: $blue; }
 
     &_big {
       width: 320px;
-      margin-bottom: 10px;
+      margin-bottom: .75rem;
+      border-radius: 10px;
     }
   }
 
   &_buy-btn {
-    display: block;
-    width: 150px;
-    margin: 20px auto;
-    padding: 10px 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 160px;
+    margin: 1.25rem auto;
+    padding: .7rem 1.25rem;
     background: $blue;
-    border-radius: 3px;
+    border-radius: 8px;
     text-decoration: none;
     color: #fff;
-    transition: all 0.4s;
+    font-weight: 700;
+    font-size: .9375rem;
+    transition: background .2s ease, transform .15s ease;
+    box-shadow: 0 2px 8px rgba(37,99,235,.3);
 
     &:hover {
-      background-color: $red;
+      background: darken($blue, 8%);
+      transform: translateY(-1px);
     }
 
     &-show {
       float: right;
       margin: 0;
-      width: auto;
+      min-width: auto;
+      border-radius: 0 8px 8px 0;
     }
   }
 
@@ -155,107 +182,82 @@
     display: block;
     box-sizing: border-box;
     width: 100%;
-    padding: 5px 5px;
+    padding: .5rem .75rem;
     background: $red;
     color: #fff;
-    font-size: 30px;
+    font-size: 1.75rem;
+    font-weight: 800;
+    border-radius: 8px 8px 0 0;
 
     &-show {
       float: left;
       width: auto;
-      padding: 5px 15px;
+      border-radius: 8px 0 0 8px;
+      padding: .5rem 1rem;
     }
   }
 
   &_features {
-    table, td, tr {
-      border: none;
-    }
+    table, td, tr { border: none; }
 
     table {
       width: 100%;
+      border-collapse: collapse;
 
-      tr:nth-child(2n+1)  {
-        background: #dcf1fc;
+      tr:nth-child(2n+1) {
+        background: #f0f7ff;
       }
 
       td {
-        padding: 10px 15px;
-
-        &:first-child {
-          font-weight: 700;
-        }
+        padding: .7rem 1rem;
+        font-size: .9375rem;
+        &:first-child { font-weight: 700; color: #1e3a5f; }
       }
     }
   }
 
   &_hr {
-    margin-top: 10px;
-    background-color: $gray;
+    margin-top: .75rem;
+    border: none;
+    border-top: 1px solid #e2e8f0;
   }
 }
 
-.breadcrumbs {
-  margin: 20px 0;
-  font-size: 1.5rem;
-  overflow-wrap: break-word;
-
-  a {
-    color: $gray;
-    text-decoration: none;
-  }
-
-  .arrow {
-    margin: 0 10px;
-  }
-
-  .last {
-    color: #010101;
-    font-size: 1.5rem;
-    display: inline;
-  }
-}
-
+// ─── Feedback modals ──────────────────────────────────────────────────────────
 #feedback,
 #feedback_main {
   width: 400px;
-  padding: 10px 20px;
+  padding: 1rem 1.25rem;
   text-align: center;
 }
 
+// ─── Mobile ───────────────────────────────────────────────────────────────────
 @media (max-width: 767px) {
   .stock {
-    margin: 0;
+    gap: .75rem;
 
     &--sale {
-      float: none;
       display: block;
       width: 100%;
-      height: 100%;
       padding: 0;
       margin-bottom: 1.5rem;
     }
 
     &_item {
       width: 100%;
-      display: block;
-      float: none;
-      margin: 0 0 1rem 0;
+      max-width: 100%;
+      flex-direction: column;
+      border-radius: 8px;
     }
 
-    &-left-col {
-      width: 100%;
-    }
-
-    &-right-col {
-      width: 100%;
-      margin-bottom: 1rem;
-    }
+    &-left-col { width: 100%; }
+    &-right-col { width: 100%; margin-bottom: 1rem; }
 
     &_img_big {
       margin: 0;
       width: 100%;
       display: block;
+      border-radius: 8px;
     }
 
     &_price-show {
@@ -269,7 +271,7 @@
       margin: 0;
       width: 50%;
       box-sizing: border-box;
-      padding: 15px 15px;
+      padding: 1rem;
       border-radius: 0;
     }
 

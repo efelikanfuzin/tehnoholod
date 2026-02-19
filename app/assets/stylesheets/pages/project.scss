@@ -1,73 +1,98 @@
+// ─── Projects page ────────────────────────────────────────────────────────────
 ._projects {
-  min-height: calc(100vh - 175px);
+  min-height: calc(100vh - 200px);
   margin-top: 5rem;
 }
 
+// ─── Project card (list) ──────────────────────────────────────────────────────
 .project-item {
-  border: 3px solid $blue;
-  padding: 15px;
+  border: none;
+  border-left: 4px solid $blue;
+  border-radius: 0 12px 12px 0;
+  padding: 1rem 1.25rem;
   display: block;
   text-decoration: none;
-  margin-bottom: 15px;
-  color: black;
-  transition: all 0.6s;
+  margin-bottom: 1rem;
+  color: #0f172a;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(15,23,42,.07);
+  transition: transform .25s ease, box-shadow .25s ease, border-color .2s ease;
+  overflow: hidden;
 
   &:hover {
-    border: 3px solid rgba(16, 84, 120, 0.62);
-    background-color: rgba(179, 222, 229, 0.16);
+    border-left-color: darken($blue, 10%);
+    background: #f0f7ff;
+    transform: translateX(4px);
+    box-shadow: 0 6px 22px rgba(15,23,42,.12);
   }
 
   &_preview {
     float: left;
-    margin-right: 10px;
+    margin-right: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
   }
 
   &_title {
     margin-top: 0;
-    margin-bottom: 10px;
+    margin-bottom: .5rem;
     color: $blue;
     font-weight: 700;
-    font-size: 18px;
+    font-size: 1.05rem;
     text-transform: uppercase;
+    letter-spacing: .04em;
   }
 }
 
+// ─── Project detail ────────────────────────────────────────────────────────────
 .project-container {
-  margin-bottom: 30px;
+  margin-bottom: 2rem;
 }
 
 .project-img {
   width: 265px;
   height: 200px;
   float: left;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(15,23,42,.1);
 
   img {
     width: 100%;
     height: 100%;
+    object-fit: cover;
   }
 }
 
 .project-text {
-  width: 900px;
+  width: 870px;
   float: left;
-  margin-left: 35px;
+  margin-left: 2rem;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #334155;
 }
 
+// ─── Photo gallery ────────────────────────────────────────────────────────────
 .project-gall {
   position: relative;
 
   .swiper-container {
-    height: 250px;
+    height: 280px;
+    border-radius: 10px;
+    overflow: hidden;
   }
 
   .swiper-slide {
     a {
-      display: inline-block;
+      display: block;
       width: 100%;
       height: 100%;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      transition: transform .35s ease;
+      &:hover { transform: scale(1.03); }
     }
   }
 }
@@ -88,28 +113,33 @@
   background: url(asset-path('next.png')) center center no-repeat;
 }
 
+// ─── Project placeholder banner ───────────────────────────────────────────────
 .project-banner {
   width: 295px;
   height: 220px;
   background: url(asset-path('project-img.png')) center center no-repeat;
   background-size: contain;
+  border-radius: 10px;
 
-  &._1 {
+  &._1, &._2 {
     background: url(asset-path('project-img.png')) center center no-repeat;
     background-size: contain;
-  }
-
-  &._2 {
-    background: url(asset-path('project-img.png')) center center no-repeat;
-    background-size: contain;
+    border-radius: 10px;
   }
 }
 
+// ─── Mobile ───────────────────────────────────────────────────────────────────
 @media (max-width: 767px) {
   .project {
+    &-item {
+      border-radius: 8px;
+      border-left-width: 3px;
+      &:hover { transform: none; }
+    }
+
     &-item_preview {
       float: none;
-      margin: 0 auto;
+      margin: 0 auto .75rem;
       display: block;
     }
 
@@ -119,7 +149,20 @@
     }
 
     &-container {
-      padding: 1rem;
+      padding: 0 .5rem;
+    }
+
+    &-img {
+      width: 100%;
+      height: 180px;
+      float: none;
+      margin-bottom: 1rem;
+    }
+
+    &-text {
+      width: auto;
+      float: none;
+      margin-left: 0;
     }
   }
 }
